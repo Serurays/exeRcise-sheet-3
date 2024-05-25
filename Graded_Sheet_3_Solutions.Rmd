@@ -146,6 +146,17 @@ cat("Year with the bigger baby-boom:", bigger_boom, "\n")
 
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
+    
+```{r add_year_column, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+
+data_2022 <- data_2022 %>%
+  mutate(year = 2022)
+
+data_2023 <- data_2023 %>%
+  mutate(year = 2023)
+```
 
 e)  Combine both datasets into one using `bind_rows()`.
 
