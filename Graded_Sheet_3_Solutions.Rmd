@@ -91,12 +91,6 @@ class(data_2022$Anzahl)
 class(data_2023$Anzahl)
 ```
 
-```{r check_type_of_anzahl}
-  
-class(data_2022$Anzahl)
-class(data_2023$Anzahl)
-```
-
 ```{r determine_problem}
 
 head(data_2022$Anzahl)
