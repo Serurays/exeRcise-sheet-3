@@ -103,6 +103,26 @@ head(data_2023$Anzahl)
 tail(data_2022$Anzahl)
 tail(data_2023$Anzahl)
 ```
+```{r solve_problem_by_turning_variable_to_numeric}
+
+clean_anzahl <- function(data) {
+  data$Anzahl <- as.numeric(gsub("[^0-9]", "", data$Anzahl))
+  data$Anzahl[is.na(data$Anzahl)] <- 4
+  return(data)
+}
+
+data_2022 <- clean_anzahl(data_2022)
+data_2023 <- clean_anzahl(data_2023)
+
+head(data_2022$Anzahl)
+head(data_2023$Anzahl)
+tail(data_2022$Anzahl)
+tail(data_2023$Anzahl)
+```
+
+**Solution:** The function clean_anzahl uses gsub to remove any non-numeric characters from the "Anzahl" variable, leaving only the numeric values.
+If the value was "4 oder weniger", it replaces the resulting NA with 4, assuming this means "4 or fewer". This approach ensures that the "Anzahl" variable contains numeric values, making it suitable for further analysis. However, it does make an assumption about the meaning of "4 oder weniger" and replaces it with 4. If this assumption is incorrect, it might introduce inaccuracies in the data.
+
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
 
