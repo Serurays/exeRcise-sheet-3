@@ -196,7 +196,7 @@ a)  Go to <https://github.com/owid/owid-datasets/tree/master/datasets>
     
 b)  Download the dataset and track it in git.
 
-```{r download_dataset}
+```{r download_dataset, message=FALSE, warning=FALSE}
 
 data <- read_csv("https://raw.githubusercontent.com/owid/owid-datasets/master/datasets/Antibiotic%20use%20in%20livestock%20-%20European%20Commission%20%26%20Van%20Boeckel%20et%20al./Antibiotic%20use%20in%20livestock%20-%20European%20Commission%20%26%20Van%20Boeckel%20et%20al..csv")
 
