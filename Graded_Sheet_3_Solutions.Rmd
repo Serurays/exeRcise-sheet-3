@@ -1,5 +1,6 @@
 ---
-title: "Graded_Sheet_3"
+title: "Exercise #3"
+subtitle: "Fortgeschrittene Statistische Software für NF - SS24"
 author: "Serra Aksoy (12872071)"
 date: "`r Sys.Date()`"
 output: html_document
@@ -170,6 +171,24 @@ tail(combined_data)
 f)  Combine the counts for same names to determine the most popular
     names across both years. Print out the top 10 names in a nicely
     formatted table for both years. Include a table caption.
+    
+```{r most_popular_names}
+
+library(kableExtra)
+
+combined_names <- combined_data %>%
+  group_by(Vorname) %>%
+  summarise(Total_Count = sum(Anzahl)) %>%
+  arrange(desc(Total_Count))
+
+top_10_names <- combined_names %>% 
+  head(10)
+
+top_10_names %>%
+  knitr::kable(caption="Top 10 Most Popular Baby Names in Munich for 2022 and 2023") %>%
+  kable_styling(bootstrap_options = "striped",
+                full_width = FALSE)
+```
 
 ## Exercise 4: Open Analysis (4 points)
 
