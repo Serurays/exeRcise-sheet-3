@@ -217,6 +217,11 @@ d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
+    
+**Research Question:** How has the antibiotic use in livestock changed over time in Germany from 2010 to 2015, and how does it compare to other countries in the dataset for the year 2010?
+
+**Explanation:** This question is interesting because it can help to understand the trend of antibiotic use in livestock over time in Germany and compare it with other countries' usage in a specific year (2010). This can provide insights into the effectiveness of policies or practices aimed at reducing antibiotic use in livestock.
+
 e)  Use R to answer your chosen question.
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
