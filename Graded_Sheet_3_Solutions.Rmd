@@ -90,6 +90,18 @@ class(data_2022$Anzahl)
 class(data_2023$Anzahl)
 ```
 
+```{r check_type_of_anzahl}
+  
+class(data_2022$Anzahl)
+class(data_2023$Anzahl)
+```
+
+```{r determine_problem}
+
+head(data_2022$Anzahl)
+head(data_2023$Anzahl)
+```
+
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
 
