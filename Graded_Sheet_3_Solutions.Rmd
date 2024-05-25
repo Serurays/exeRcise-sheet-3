@@ -84,6 +84,12 @@ data_2022 <- read.csv("data/vornamen_muenchen_2022.csv")
 data_2023 <- read.csv("data/vornamen_muenchen_2023.csv")
 ```
 
+```{r check_type_of_anzahl}
+  
+class(data_2022$Anzahl)
+class(data_2023$Anzahl)
+```
+
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
 
