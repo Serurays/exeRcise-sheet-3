@@ -223,6 +223,63 @@ d)  Come up with a (research) question you want to answer with the data
 **Explanation:** This question is interesting because it can help to understand the trend of antibiotic use in livestock over time in Germany and compare it with other countries' usage in a specific year (2010). This can provide insights into the effectiveness of policies or practices aimed at reducing antibiotic use in livestock.
 
 e)  Use R to answer your chosen question.
+
+```{r slice_needed_data}
+
+germany_data <- data %>% filter(Entity == "Germany")
+data_2010 <- data %>% filter(Year == 2010)
+
+colnames(germany_data) <- c("Entity", "Year", "Antibiotic_Use")
+colnames(data_2010) <- c("Entity", "Year", "Antibiotic_Use")
+
+head(germany_data)
+head(data_2010)
+```
+
+**Answer for the first part of the Research Question:** From the table for Germany, we can see that the antibiotic use in livestock remained constant at 211.5 mg/kg in 2010 and 2011. It then started to decline from 204.8 mg/kg in 2012 to 97.9 mg/kg in 2015. This indicates a significant reduction in antibiotic use over the six-year period. This decline can be attributed to a series of targeted policies and initiatives, including the German Antibiotic Resistance Strategy (DART), the 16th Amendment of the German Medicinal Products Act, and the establishment of reduction targets for antibiotic use in agriculture. Enhanced monitoring through a national database, increased research efforts, and awareness campaigns further supported these regulatory measures.
+
+**To address the second part of the question, it's beneficial to sort the data and see where Germany stands.**
+
+```{r sort_data_2010}
+
+sorted_data_2010 <- data_2010 %>% 
+  arrange(desc(Antibiotic_Use))
+
+germany_index <- which(sorted_data_2010$Entity == "Germany")
+
+sorted_data_2010
+germany_index
+```
+
+**Answer for the second part of the Research Question:** In 2010, Germany ranked 5th among all the countries in the dataset in terms of antibiotic use in livestock, with a usage rate of 211.5 mg/kg. This indicates that, at that time, Germany had one of the higher antibiotic usage rates compared to other countries included in the dataset. However, it's important to note that several other countries (Italy, Cyprus, Hungary, Spain) had even higher usage rates, suggesting that antibiotic use in livestock was a widespread issue across multiple regions. This comparison underscores the significance of monitoring and addressing antibiotic use practices in livestock farming on a global scale to mitigate the risk of antibiotic resistance and safeguard public health.
+
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+    
+```{r plot_antibiotic_use_germany, fig.cap="Figure 1: Antibiotic Use in Livestock in Germany (2010-2015)"}
+
+library(ggplot2)
+
+ggplot(germany_data, aes(x = Year, y = Antibiotic_Use)) +
+  geom_line(color = "blue") +
+  geom_point(color = "blue") +
+  labs(x = "Year",
+       y = "Antibiotic Use (mg/kg)") +
+  theme_minimal()
+```
+
+```{r plot_antibiotic_use_2010, fig.cap="Figure 2: Top 10 Countries with Highest Antibiotic Use in Livestock (2010)"}
+
+top_countries_2010 <- data_2010 %>%
+  arrange(desc(Antibiotic_Use)) %>%
+  head(10)
+
+# Plot antibiotic use in top countries
+ggplot(top_countries_2010, aes(x = reorder(Entity, Antibiotic_Use), y = Antibiotic_Use)) +
+  geom_bar(stat = "identity", fill = "lightblue") +
+  coord_flip() +
+  labs(x = "Country",
+       y = "Antibiotic Use (mg/kg)") +
+  theme_minimal()
+```
