@@ -199,11 +199,19 @@ determining the research question yourself.
 a)  Go to <https://github.com/owid/owid-datasets/tree/master/datasets>
     and choose a dataset that interests you. You can have a look at
     <https://ourworldindata.org/> to gather some inspiration.
+    
 b)  Download the dataset and track it in git.
-c)  Put the name / title of the dataset and a link to it below.
 
--   Dataset Name: ...
--   Link: <https://github.com/owid/owid-datasets/>...
+```{r download_dataset}
+
+data <- read_csv("https://raw.githubusercontent.com/owid/owid-datasets/master/datasets/Antibiotic%20use%20in%20livestock%20-%20European%20Commission%20%26%20Van%20Boeckel%20et%20al./Antibiotic%20use%20in%20livestock%20-%20European%20Commission%20%26%20Van%20Boeckel%20et%20al..csv")
+
+head(data)
+```
+
+c)  Put the name / title of the dataset and a link to it below.
+-   **Dataset Name:** "Antibiotic use in livestock - European Commission & Van Boeckel et al."
+-   **Link:** <https://github.com/owid/owid-datasets/tree/master/datasets/Antibiotic%20use%20in%20livestock%20-%20European%20Commission%20%26%20Van%20Boeckel%20et%20al.>
 
 d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
