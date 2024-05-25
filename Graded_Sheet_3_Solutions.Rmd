@@ -125,6 +125,24 @@ If the value was "4 oder weniger", it replaces the resulting NA with 4, assuming
 
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
+    
+```{r calculate_compare_num_babies}
+
+total_2022 <- sum(data_2022$Anzahl)
+total_2023 <- sum(data_2023$Anzahl)
+
+if (total_2022 > total_2023) {
+  bigger_boom <- "2022"
+} else if (total_2023 > total_2022) {
+  bigger_boom <- "2023"
+} else {
+  bigger_boom <- "Both years had the same number of babies"
+}
+
+cat("Total number of babies born in 2022:", total_2022, "\n")
+cat("Total number of babies born in 2023:", total_2023, "\n")
+cat("Year with the bigger baby-boom:", bigger_boom, "\n")
+```
 
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
