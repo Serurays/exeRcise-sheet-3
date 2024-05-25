@@ -251,7 +251,7 @@ f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
     
-```{r plot_antibiotic_use_germany, fig.cap="Figure, message=FALSE, warning=FALSE}
+```{r plot_antibiotic_use_germany, fig.cap="Figure 1: Antibiotic Use in Livestock in Germany (2010-2015)", warning=FALSE, message=FALSE}
 
 library(ggplot2)
 
